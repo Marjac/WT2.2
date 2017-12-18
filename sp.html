@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="favicon.ico">
+
+  <title>VanGogh</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!--link href="/index.css" rel="stylesheet"-->
+
+  <!-- Custom styles for this template -->
+  <link href="album.css" rel="stylesheet">
+  <link href="open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+  <link href="comments.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container d-flex">
+      <a class="navbar-brand" href="index.html">VanGogh</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home&nbsp;/</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Self-Portraits.html">Self Portraits&nbsp;/</a>
+          </li>
+          <li class="nav-item active">
+            <span class="nav-link" data-bind="text:selected_info().title"></span>
+          </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="container d-flex">
+    <span class="oi oi-arrow-left btn-lg btn-outline-dark" onclick="goBack()"></span>
+  </div>
+
+  <div class="album text-muted">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <img data-bind="attr:{src:selected_info().img}" width="100%" height="auto">
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <p style="text-align: center">
+            <h1 class="h2" data-bind="text:selected_info().title"></h1>
+            <p>&nbsp;</p>
+            <p data-bind="text:selected_info().when"></p>
+            <p data-bind="text:selected_info().what"></p>
+            <p data-bind="text:selected_info().credits"></p>
+            <hr>
+            <p data-bind="html:selected_info().description"></p>
+            <hr>
+            <br> We love this painting! How much do you like it? Leave your rating below or join the discussion.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="col-auto" style="text-align: center">
+      <hr>
+      <span id="stars" class="starrr rating"></span>&nbsp; &nbsp;<span id="count">0</span>&nbsp; star(s)<br>
+      <span id="stars" class="starrr rating"></span>&nbsp; Average rating &nbsp;<span id="count">0</span>&nbsp; star(s)
+      <hr>
+    </div>
+    <section>
+      <div class="container">
+        <form>
+          <div class="col-auto">
+            <label for="form">Join the discussion!</label>
+            <input type="text" class="form-control mb-2 mb-sm-0" id="form" placeholder="Name (Pay attention, this name will be public)">
+          </div>
+          <div class="col-auto form-group">
+            <textarea class="form-control" rows="3" placeholder="Type here"></textarea>
+            <div class="form-check">
+              <label class="form-check-label"><input class="form-check-input" type="checkbox"> Place anonymous comment</label>
+            </div>
+          </div>
+        </form>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-dark">Submit</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline">
+      <ol>
+                {% for comment in all_comments%}
+                <li>
+                    <div>
+                        <time>{{comment.name}}</time> {{comment.comment}}
+                    </div>
+                </li>
+                {% endfor %}
+                <li></li>
+            </ol>
+
+      <div class="arrows">
+
+        <button class="arrow arrow__prev disabled" disabled>
+      <span class="oi oi-arrow-circle-left"></span>
+    </button>
+        <button class="arrow arrow__next">
+      <span class="oi oi-arrow-circle-right"></span>
+    </button>
+      </div>
+    </section>
+  </div>
+
+  <div class="fixed-bottom">
+    <div class="collapse bg-dark " id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 py-4">
+            <h4 class="text-white">About</h4>
+            <p class="text-muted">This website is created for the Web Technology course 2ID60. All information is derived from https://www.vangoghmuseum.nl</p>
+          </div>
+          <div class="col-sm-4 py-4">
+            <h4 class="text-white">See these paintings in real life?</h4>
+            <p class="text-muted">A selection of Van Gogh's works can be seen in the Van Gogh Museum in Amsterdam!<br><br> Visiting address:<br>              Museumplein 6
+              <br> 1071 DJ Amsterdam
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark">
+      <div class="container d-flex">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader"
+          aria-expanded="false" aria-label="Toggle navigation">
+            <span>About</span>
+          </button>
+        <a class="btn btn-outline-light" href="#" role="button" <span class="oi oi-arrow-top">&nbsp;</span>Back to top</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script
+			  src="https://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous"></script>
+  <script src="js/vendor/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/vendor/holder.min.js"></script>
+  <script src="js/rating.js"></script>
+  <script src="js/knockout-3.4.2.js"></script>
+  <script src="js/Self-Portraits.js"></script>
+  <script src="comments.js"></script>
+  <script>
+    Holder.addTheme('thumb', {
+      bg: '#55595c',
+      fg: '#eceeef',
+      text: 'Thumbnail'
+    });
+  </script>
+</body>
+
+</html>
