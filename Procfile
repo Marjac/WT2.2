@@ -1,1 +1,1 @@
-web: gunicorn webtech.wsgi:application --log-file 
+web: gunicorn webtech.wsgi:application --log-file -
