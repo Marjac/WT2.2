@@ -1,6 +1,7 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from snippets import views
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^snippets/$', views.SnippetList.as_view()),
@@ -8,3 +9,6 @@ urlpatterns = [
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
+
+from webtech import settings
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
