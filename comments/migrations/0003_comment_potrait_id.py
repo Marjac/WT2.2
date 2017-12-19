@@ -6,12 +6,12 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('snippets', '0002_auto_20171214_1642'),
+        ('comments', '0002_auto_20171214_1642'),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='snippet',
+            model_name='comment',
             name='potrait_id',
             field=models.TextField(blank=True, default='', max_length=100),
         ),

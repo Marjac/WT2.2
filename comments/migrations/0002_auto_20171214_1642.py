@@ -6,38 +6,38 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('snippets', '0001_initial'),
+        ('comments', '0001_initial'),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='snippet',
+            model_name='comment',
             old_name='title',
             new_name='comment',
         ),
         migrations.RemoveField(
-            model_name='snippet',
+            model_name='comment',
             name='code',
         ),
         migrations.RemoveField(
-            model_name='snippet',
+            model_name='comment',
             name='language',
         ),
         migrations.RemoveField(
-            model_name='snippet',
+            model_name='comment',
             name='linenos',
         ),
         migrations.RemoveField(
-            model_name='snippet',
+            model_name='comment',
             name='style',
         ),
         migrations.AddField(
-            model_name='snippet',
+            model_name='comment',
             name='name',
             field=models.CharField(blank=True, default='', max_length=100),
         ),
         migrations.AddField(
-            model_name='snippet',
+            model_name='comment',
             name='rating',
             field=models.TextField(blank=True, default='', max_length=1),
         ),
