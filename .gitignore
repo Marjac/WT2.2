@@ -31,7 +31,7 @@ _ReSharper*/
 #Nuget packages folder
 packages/
 env/
-__pycache__
+__pycache__/
 db.sqlite3
 webtech/__pycache__/settings.cpython-36.pyc
 *.pyc
