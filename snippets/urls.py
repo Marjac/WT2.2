@@ -1,11 +1,11 @@
 from django.conf.urls import url, include
 from rest_framework.urlpatterns import format_suffix_patterns
-from comments import views
+from snippets import views
 from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^$', views.CommentList.as_view()),
-    url(r'^(?P<pk>[0-9]+)/$', views.CommentDetail.as_view()),
+    url(r'$', views.SnippetList.as_view()),
+    url(r'(?P<pk>[0-9]+)/$', views.SnippetDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

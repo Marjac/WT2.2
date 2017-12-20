@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'snippets.apps.SnippetsConfig',
     'comments.apps.CommentsConfig',
+	'portraits.apps.PortraitsConfig',
     'corsheaders',
 ]
 
@@ -134,5 +136,5 @@ STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 #STATICFILES_DIRS = (
- #   os.path.join(BASE_DIR, 'static'),
+#    os.path.join(BASE_DIR, 'static'),
 #)
